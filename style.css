@@ -52,7 +52,14 @@ body {
     display: flex;
     align-items: center;
 
-    transform: translateX(-350px);
+    color: #d0d0d0 !important;
+    text-decoration: none;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+
+    transform: translateX(-20px);
 }
 
 .logo img {
@@ -72,29 +79,52 @@ body {
 
 .nav {
     display: flex;
-
     align-items: center;
+    gap: 8px;
 
-    gap: 42px;
+    padding: 8px 10px;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 
 .nav a {
     position: relative;
 
-    color: #111111;
+    display: block;
+    padding: 11px 18px;
 
+    color: #111111;
     text-decoration: none;
 
     font-size: 0.7rem;
-
     font-weight: 500;
-
     letter-spacing: 0.16em;
-
     text-transform: uppercase;
 
-    transition: color 0.3s ease;
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 
@@ -173,6 +203,8 @@ body {
     letter-spacing: -0.06em;
 
     max-width: 1000px;
+
+    color: #a9a7a7;
 }
 
 
@@ -262,18 +294,22 @@ body {
 
 /* ---------- SECCIONES ---------- */
 
-.projects,
+.projects {
+    min-height: 100vh;
+    padding: 140px 6vw;
+    background-color: #f5f5f3;
+}
+
 .services,
 .about,
 .contact {
     min-height: 100vh;
-
     padding: 140px 6vw;
 }
 
 .projects {
-    background-color: #111111;
-    color: #f5f5f3;
+    background-color: #f5f5f3;
+    color: #111111;
 }
 
 .projects h2 span {
@@ -472,15 +508,17 @@ footer {
 }
 
 
-    .nav {
-        display: flex;
-        gap: 12px;
-    }
+  .nav {
+    display: flex;
+    gap: 4px;
+    padding: 5px 6px;
+}
 
-    .nav a {
-        font-size: 0.55rem;
-        letter-spacing: 0.08em;
-    }
+.nav a {
+    padding: 7px 8px;
+    font-size: 0.48rem;
+    letter-spacing: 0.06em;
+}
 
 
     .hero {
@@ -703,6 +741,8 @@ footer {
     min-height: 100vh;
 
     overflow: hidden;
+
+    background-color: #111111;
 }
 
 
@@ -712,7 +752,7 @@ footer {
     position: absolute;
     top: 0;
     right: 0;
-    width: 58%;
+    width: 100%;
     height: 100%;
     z-index: 0;
 
@@ -750,18 +790,15 @@ footer {
 
 .hero-overlay {
     position: absolute;
-
     inset: 0;
-
     z-index: 1;
-
     background:
         linear-gradient(
             90deg,
-            #f5f5f3 0%,
-            rgba(245,245,243,0.96) 35%,
-            rgba(245,245,243,0.25) 65%,
-            rgba(245,245,243,0) 100%
+            #111111 0%,
+            rgba(17,17,17,0.96) 35%,
+            rgba(17,17,17,0.25) 65%,
+            rgba(17,17,17,0) 100%
         );
 }
 
@@ -1320,65 +1357,194 @@ footer {
 
 }
 
-/* PANTALLA DE ENTRADA */
+/* ========================================
+   PANTALLA DE ENTRADA
+======================================== */
 
 .intro-screen {
     position: fixed;
     inset: 0;
 
-    background-color: #f5f5f3;
+    background: #111111;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     z-index: 9999;
-
-    animation: introScreen 2.5s ease-in-out forwards;
     pointer-events: none;
+
+    animation: introScreen 3.2s ease-in-out forwards;
 }
 
-.intro-welcome {
+
+/* Formación de cubos */
+
+.cube-formation {
+    position: relative;
+
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Cubos */
+
+.cube {
     position: absolute;
 
-    color: #7a1f2b;
+    width: 38px;
+    height: 38px;
 
-    font-family: "Segoe Print", "Bradley Hand", cursive;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    line-height: 1;
+    background: #ffffff;
 
-    text-transform: uppercase;
-    margin: 0;
+    border-radius: 2px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
 
     opacity: 0;
-    transform: translateY(30px);
-    animation: welcomeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+
+    animation:
+        cubeAppear 0.6s ease-out forwards,
+        cubePulse 1.2s ease-in-out forwards,
+        cubeDisappear 0.6s ease-in forwards;
 }
 
-@keyframes welcomeIn {
+
+/* Posiciones */
+
+.cube-1 {
+    transform: translate(-45px, -45px);
+    animation-delay: 0.05s, 0.8s, 2.25s;
+}
+
+.cube-2 {
+    transform: translate(0, -45px);
+    animation-delay: 0.12s, 0.87s, 2.25s;
+}
+
+.cube-3 {
+    transform: translate(45px, -45px);
+    animation-delay: 0.19s, 0.94s, 2.25s;
+}
+
+.cube-4 {
+    transform: translate(-45px, 0);
+    animation-delay: 0.26s, 1.01s, 2.25s;
+}
+
+.cube-5 {
+    transform: translate(0, 0);
+    animation-delay: 0.33s, 1.08s, 2.25s;
+}
+
+.cube-6 {
+    transform: translate(45px, 0);
+    animation-delay: 0.40s, 1.15s, 2.25s;
+}
+
+.cube-7 {
+    transform: translate(-22px, 45px);
+    animation-delay: 0.47s, 1.22s, 2.25s;
+}
+
+.cube-8 {
+    transform: translate(23px, 45px);
+    animation-delay: 0.54s, 1.29s, 2.25s;
+}
+
+
+/* Aparición */
+
+@keyframes cubeAppear {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        scale: 0.4;
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        scale: 1;
     }
 
 }
+
+
+/* Pulso borgoña */
+
+@keyframes cubePulse {
+
+    0% {
+        background: #ffffff;
+        scale: 1;
+
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    45% {
+        background: #7a1f2b;
+        scale: 1.12;
+
+        box-shadow:
+            inset 0 0 15px rgba(255, 255, 255, 0.35),
+            0 0 35px rgba(122, 31, 43, 0.8);
+    }
+
+    100% {
+        background: #ffffff;
+        scale: 1;
+
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+}
+
+
+/* Desaparición */
+
+@keyframes cubeDisappear {
+
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+
+    to {
+        opacity: 0;
+        scale: 0.35;
+    }
+
+}
+
+.intro-screen img {
+    display: none !important;
+}
+
+.cube {
+    opacity: 1 !important;
+}
+
+
+/* Desaparición de toda la pantalla */
 
 @keyframes introScreen {
 
     0% {
         opacity: 1;
+        visibility: visible;
     }
 
-    70% {
+    85% {
         opacity: 1;
+        visibility: visible;
     }
 
     100% {
@@ -1388,60 +1554,6 @@ footer {
 
 }
 
-.intro-logo {
-    width: 360px;
-    max-width: 70vw;
-    height: auto;
-    display: block;
-
-    opacity: 0;
-
-    animation: introLogo 2.3s ease-in-out forwards;
-}
-
-@keyframes introLogo {
-
-    0% {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-
-    25% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    65% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-
-}
-
-@keyframes introLogo {
-
-    0% {
-        opacity: 0;
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    65% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-
-}
 
 /* ========================================
    PÁGINA INDIVIDUAL DE PROYECTO
@@ -1628,4 +1740,721 @@ footer {
         margin: 100px 5vw 70px;
     }
 
+}
+
+@media (max-width: 600px) {
+
+    .courses {
+        padding: 100px 5vw;
+    }
+
+    .courses-header {
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        margin-top: 60px;
+        margin-bottom: 70px;
+    }
+
+    .courses-header h2 {
+        font-size: clamp(4rem, 16vw, 6rem);
+    }
+
+    .course {
+        grid-template-columns: 40px 1fr 30px;
+        gap: 15px;
+
+        padding: 30px 0;
+    }
+
+    .course-info h3 {
+        font-size: 1.15rem;
+    }
+
+    .course-info p {
+        font-size: 0.8rem;
+    }
+
+}
+
+/* ========================================
+   CURSOS
+======================================== */
+
+.courses {
+    min-height: 100vh;
+    padding: 140px 6vw;
+    background-color: #f5f5f3;
+    color: #111111;
+}
+
+.courses-header {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
+    align-items: end;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.courses-header h2 {
+    margin: 0;
+    font-size: clamp(4rem, 8vw, 9rem);
+    line-height: 0.88;
+    font-weight: 500;
+    letter-spacing: -0.07em;
+}
+
+.courses-header h2 span {
+    display: block;
+    color: #7a1f2b;
+}
+
+.courses-intro {
+    max-width: 420px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #555555;
+}
+
+.courses-list {
+    border-top: 1px solid #cccccc;
+}
+
+.course {
+    display: grid;
+    grid-template-columns: 80px 1fr 60px;
+    align-items: center;
+    gap: 40px;
+
+    padding: 40px 0;
+
+    color: #111111;
+    text-decoration: none;
+
+    border-bottom: 1px solid #cccccc;
+
+    transition:
+        padding-left 0.4s ease,
+        background-color 0.4s ease;
+}
+
+.course:hover {
+    padding-left: 20px;
+}
+
+.course-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: #7a1f2b;
+}
+
+.course-info h3 {
+    margin: 0;
+
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.course-info p {
+    max-width: 600px;
+
+    margin-top: 12px;
+
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #777777;
+}
+
+.course-arrow {
+    font-size: 1.5rem;
+    color: #7a1f2b;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.course:hover .course-arrow {
+    transform: translateX(8px);
+}
+
+/* ========================================
+   PÁGINA DEL CURSO
+======================================== */
+
+.course-page {
+    background-color: #f5f5f3;
+    color: #111111;
+}
+
+.course-hero {
+    min-height: 85vh;
+
+    padding: 180px 6vw 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.course-hero h1 {
+    max-width: 1100px;
+
+    margin: 0;
+
+    font-size: clamp(4rem, 10vw, 11rem);
+    line-height: 0.86;
+
+    font-weight: 500;
+    letter-spacing: -0.08em;
+}
+
+.course-hero h1 span {
+    display: block;
+    color: #7a1f2b;
+}
+
+.course-hero-description {
+    max-width: 550px;
+
+    margin-top: 55px;
+
+    font-size: 1rem;
+    line-height: 1.8;
+
+    color: #555555;
+}
+
+.course-info-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    padding: 150px 12vw;
+
+    border-top: 1px solid #cccccc;
+}
+
+.course-lead {
+    max-width: 600px;
+
+    font-size: 1.35rem;
+    line-height: 1.7;
+
+    color: #111111;
+}
+
+@media (max-width: 600px) {
+
+    .course-hero {
+        min-height: 75vh;
+
+        padding: 150px 5vw 80px;
+    }
+
+    .course-hero h1 {
+        font-size: clamp(4rem, 17vw, 6rem);
+    }
+
+    .course-hero-description {
+        margin-top: 40px;
+        font-size: 0.9rem;
+    }
+
+    .course-info-section {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 100px 5vw;
+    }
+
+    .course-lead {
+        font-size: 1.15rem;
+    }
+
+}
+
+/* ========================================
+   CONTENIDO DEL CURSO
+======================================== */
+
+.course-topics {
+    padding: 150px 6vw;
+
+    background-color: #111111;
+    color: #f5f5f3;
+}
+
+.course-topics-header {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 100px;
+
+    align-items: end;
+
+    margin-bottom: 110px;
+}
+
+.course-topics-header h2 {
+    margin: 0;
+
+    font-size: clamp(4rem, 8vw, 9rem);
+
+    line-height: 0.88;
+
+    font-weight: 500;
+
+    letter-spacing: -0.07em;
+}
+
+.course-topics-header h2 span {
+    display: block;
+
+    color: #9b3545;
+}
+
+.course-topics-list {
+    border-top: 1px solid #444444;
+}
+
+.course-topic {
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 40px;
+
+    padding: 38px 0;
+
+    border-bottom: 1px solid #444444;
+
+    transition: padding-left 0.4s ease;
+}
+
+.course-topic:hover {
+    padding-left: 20px;
+}
+
+.course-topic > span {
+    padding-top: 7px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+
+    color: #9b3545;
+}
+
+.course-topic h3 {
+    margin: 0;
+
+    font-size: 1.5rem;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+.course-topic p {
+    max-width: 650px;
+
+    margin-top: 12px;
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+
+    color: #999999;
+}
+
+@media (max-width: 600px) {
+
+    .course-topics {
+        padding: 100px 5vw;
+    }
+
+    .course-topics-header {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 70px;
+    }
+
+    .course-topics-header h2 {
+        font-size: clamp(4rem, 16vw, 6rem);
+    }
+
+    .course-topic {
+        grid-template-columns: 40px 1fr;
+
+        gap: 15px;
+
+        padding: 30px 0;
+    }
+
+    .course-topic h3 {
+        font-size: 1.15rem;
+    }
+
+    .course-topic p {
+        font-size: 0.8rem;
+    }
+
+}
+
+/* ========================================
+   INTRO — FORMACIÓN DE CUBOS
+======================================== */
+
+.cube-formation {
+    position: relative;
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cube {
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+
+    animation:
+        cubeAppear 0.7s ease-out forwards,
+        cubePulse 1.4s ease-in-out 0.7s,
+        cubeDisappear 0.6s ease-in forwards;
+}
+
+/* Formación */
+
+.cube-1 {
+    transform: translate(-45px, -45px);
+    animation-delay: 0.05s, 0.75s, 2.15s;
+}
+
+.cube-2 {
+    transform: translate(0, -45px);
+    animation-delay: 0.12s, 0.82s, 2.15s;
+}
+
+.cube-3 {
+    transform: translate(45px, -45px);
+    animation-delay: 0.19s, 0.89s, 2.15s;
+}
+
+.cube-4 {
+    transform: translate(-45px, 0);
+    animation-delay: 0.26s, 0.96s, 2.15s;
+}
+
+.cube-5 {
+    transform: translate(0, 0);
+    animation-delay: 0.33s, 1.03s, 2.15s;
+}
+
+.cube-6 {
+    transform: translate(45px, 0);
+    animation-delay: 0.40s, 1.10s, 2.15s;
+}
+
+.cube-7 {
+    transform: translate(-22px, 45px);
+    animation-delay: 0.47s, 1.17s, 2.15s;
+}
+
+.cube-8 {
+    transform: translate(23px, 45px);
+    animation-delay: 0.54s, 1.24s, 2.15s;
+}
+
+
+/* Aparición */
+
+@keyframes cubeAppear {
+
+    0% {
+        opacity: 0;
+        scale: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+
+}
+
+
+/* Pulso / iluminación borgoña */
+
+@keyframes cubePulse {
+
+    0% {
+        background: #ffffff;
+
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+            0 10px 30px rgba(0, 0, 0, 0.12);
+
+        scale: 1;
+    }
+
+    45% {
+        background: #7a1f2b;
+
+        box-shadow:
+            inset 0 0 18px rgba(255, 255, 255, 0.35),
+            0 0 35px rgba(122, 31, 43, 0.65);
+
+        scale: 1.12;
+    }
+
+    100% {
+        background: #ffffff;
+
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+            0 10px 30px rgba(0, 0, 0, 0.12);
+
+        scale: 1;
+    }
+
+}
+
+
+/* Desaparición */
+
+@keyframes cubeDisappear {
+
+    0% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.35;
+    }
+
+}
+
+/* ========================================
+   ESFERA DE CUBOS
+======================================== */
+
+.cube-sphere {
+    position: relative;
+
+    width: 420px;
+    height: 420px;
+
+    transform-style: preserve-3d;
+
+    perspective: 1000px;
+
+    animation:
+        sphereRotate 4s linear infinite,
+        spherePulse 2.2s ease-in-out infinite;
+}
+
+
+
+@keyframes sphereRotate {
+
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+
+}
+
+@keyframes spherePulse {
+
+    0% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.08;
+    }
+
+    100% {
+        scale: 1;
+    }
+
+}
+
+
+@keyframes burgundyBreath {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.65);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.65);
+    }
+
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-name {
+    margin-top: 100px;
+
+    color: #d0d0d0;
+
+    font-size: 2rem;
+    font-weight: 500;
+
+    letter-spacing: 0.55em;
+
+    opacity: 0;
+
+    animation: introNameIn 1s ease-out 0.8s forwards;
+}
+
+@keyframes introNameIn {
+
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Cada cubo */
+
+.sphere-cube {
+    position: absolute;
+
+    z-index: 1;
+
+    top: 50%;
+    left: 50%;
+
+    width: 5px;
+    height: 8px;
+
+    background: #ffffff;
+
+    border-radius: 3px;
+
+   border: 1px solid rgba(210, 210, 210, 0.9);
+
+box-shadow:
+    3px 4px 0 rgba(210, 210, 210, 0.95),
+    6px 7px 0 rgba(165, 165, 165, 0.8),
+    9px 10px 0 rgba(110, 110, 110, 0.45),
+    0 5px 14px rgba(0, 0, 0, 0.28),
+    0 0 8px rgba(122, 31, 43, 0.12);
+
+    transform-style: preserve-3d;
+
+    transform:
+    translate3d(
+        calc(var(--x) - 50%),
+        calc(var(--y) - 50%),
+        var(--z)
+    )
+    rotateX(var(--rotateX))
+    rotateY(var(--rotateY))
+    translateZ(4px);
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.18);
+
+    transition:
+    background 0.8s ease,
+    box-shadow 0.8s ease;
+    
+  transition:
+    background 0.8s ease,
+    box-shadow 0.8s ease;
+
+}
+
+@keyframes burgundyLight {
+
+    0%,
+    100% {
+        box-shadow:
+            3px 4px 0 rgba(210, 210, 210, 0.95),
+            6px 7px 0 rgba(165, 165, 165, 0.8),
+            9px 10px 0 rgba(110, 110, 110, 0.45),
+            0 5px 14px rgba(0, 0, 0, 0.28);
+    }
+
+    50% {
+    box-shadow:
+        3px 4px 0 rgba(190, 190, 190, 0.85),
+        6px 7px 0 rgba(145, 145, 145, 0.65),
+        9px 10px 0 rgba(100, 100, 100, 0.35),
+        0 5px 14px rgba(0, 0, 0, 0.28),
+        0 0 18px rgba(122, 31, 43, 0.95),
+        0 0 32px rgba(122, 31, 43, 0.55);
+}
+
+}
+
+.sphere-cube::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(122, 31, 43, 0.9);
+
+    opacity: 0;
+
+    transform: translateY(7px) scale(0.75);
+
+    box-shadow:
+    0 6px 18px rgba(122, 31, 43, 0.9),
+    0 10px 28px rgba(122, 31, 43, 0.45);
+
+    transition:
+        opacity 0.5s ease,
+        box-shadow 0.5s ease;
 }

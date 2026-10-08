@@ -16,20 +16,19 @@
 
 <body>
 
-    <!-- PANTALLA DE ENTRADA -->
+<!-- PANTALLA DE ENTRADA -->
+
 <div class="intro-screen">
 
-    <p class="intro-welcome">BIENVENIDO</p>
+    <div class="intro-content">
 
-    <img
-        src="images/logo.png"
-        alt="Estudio Génesis"
-        class="intro-logo">
+        <div class="cube-sphere" id="cubeSphere"></div>
 
-    <img
-        src="images/intro.jpg"
-        alt=""
-        class="intro-image">
+        <div class="intro-name">
+            GENESIS
+        </div>
+
+    </div>
 
 </div>
 
@@ -39,23 +38,17 @@
     <header class="header">
 
         <a href="#" class="logo">
-            <a href="#" class="logo">
-    <img src="images/logo.png" alt="Estudio Génesis">
+    GENESIS
 </a>
-        </a>
 
 
         <nav class="nav">
-
-            <a href="#proyectos">Proyectos</a>
-
-            <a href="#servicios">Servicios</a>
-
-            <a href="#estudio">Estudio</a>
-
-            <a href="#contacto">Contacto</a>
-
-        </nav>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#estudio">Estudio</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
 
     </header>
 
@@ -68,7 +61,7 @@
             <div class="hero-image">
 
                 <img
-                    src="images/proyecto-01.png"
+                    src="images/portada.png"
                     alt="Proyecto arquitectónico de Estudio Génesis">
 
             </div>
@@ -346,13 +339,62 @@
         </section>
 
 
+        <!-- CURSOS -->
+<section id="cursos" class="courses">
+
+    <p class="section-number">03 — CURSOS</p>
+
+    <div class="courses-header">
+
+        <h2>
+            Aprende a
+            <span>crear.</span>
+        </h2>
+
+        <p class="courses-intro">
+            Formación enfocada en herramientas digitales
+            para arquitectura, diseño y visualización.
+        </p>
+
+    </div>
+
+    <div class="courses-list">
+
+        <a href="#" class="course">
+
+            <div class="course-number">
+                01
+            </div>
+
+            <div class="course-info">
+
+                <h3>
+                    Domina Revit desde cero
+                </h3>
+
+                <p>
+                    Modelado arquitectónico, documentación
+                    y desarrollo de proyectos en Revit.
+                </p>
+
+            </div>
+
+            <div class="course-arrow">
+                →
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
 
                 <!-- ESTUDIO -->
 
         <section id="estudio" class="about">
 
             <p class="section-number">
-                03 — ESTUDIO
+                04 — ESTUDIO
             </p>
 
 
@@ -426,7 +468,7 @@
         <section id="contacto" class="contact">
 
             <p class="section-number">
-                04 — CONTACTO
+                05 — CONTACTO
             </p>
 
 
@@ -544,6 +586,62 @@
 
     </footer>
 
+<script>
+const sphere = document.getElementById("cubeSphere");
+
+const totalCubes = 900;
+const radius = 190;
+
+for (let i = 0; i < totalCubes; i++) {
+
+    const cube = document.createElement("span");
+
+    cube.className = "sphere-cube";
+
+    const y = 1 - (i / (totalCubes - 1)) * 2;
+    const r = Math.sqrt(1 - y * y);
+
+    const theta = Math.PI * (3 - Math.sqrt(5)) * i;
+
+    const x = Math.cos(theta) * r;
+    const z = Math.sin(theta) * r;
+
+    const rotateY = Math.atan2(x, z) * (180 / Math.PI);
+
+const rotateX =
+    -Math.atan2(
+        y,
+        Math.sqrt(x * x + z * z)
+    ) * (180 / Math.PI);
+
+cube.style.setProperty("--rotateX", `${rotateX}deg`);
+cube.style.setProperty("--rotateY", `${rotateY}deg`);
+
+    cube.style.setProperty("--x", `${x * radius}px`);
+    cube.style.setProperty("--y", `${y * radius}px`);
+    cube.style.setProperty("--z", `${z * radius}px`);
+
+const distanceFromCenter = Math.sqrt(
+    x * x +
+    y * y +
+    z * z
+);
+
+cube.style.setProperty(
+    "--distance",
+    distanceFromCenter
+);
+
+const glowDelay = (i % 40) * 0.06;
+
+cube.style.setProperty(
+    "--glowDelay",
+    `${glowDelay}s`
+);
+
+    sphere.appendChild(cube);
+}
+</script>
 
 </body>
 
