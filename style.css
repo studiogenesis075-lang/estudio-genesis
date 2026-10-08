@@ -501,6 +501,10 @@ footer {
    CELULAR
    ========================================= */
 
+   .menu-toggle {
+    display: none;
+}
+
 @media (max-width: 600px) {
 
     .header {
@@ -509,15 +513,54 @@ footer {
 
 
 .nav {
+    display: none;
+
+    position: absolute;
+    top: 75px;
+    right: 4vw;
+
+    width: auto;
+    min-width: 160px;
+
+    padding: 10px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+
+    background: rgba(17, 17, 17, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+}
+
+.nav.menu-open a {
+    padding: 11px 14px;
+
+    color: #d0d0d0;
+
+    background: transparent;
+    border: none;
+
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+
+    text-align: left;
+}
+
+.nav.menu-open a:hover {
+    color: #9b3545;
+}
+
+.nav.menu-open {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-
-    width: 100%;
-    padding: 6px;
-
-    border-radius: 20px;
 }
 
 .nav a {
@@ -603,6 +646,60 @@ footer {
 .hero-image img {
     opacity: 1 !important;
 }
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 16px;
+    height: 1px;
+
+    margin: 2px 0;
+
+    background: #111111;
+}
+
+.intro-content {
+    transform: scale(0.45);
+}
+
+.cube-sphere {
+    width: 420px;
+    height: 420px;
+}
+
+.intro-name {
+    margin-top: 100px;
+    font-size: 2rem;
+}
+
+.cube-sphere {
+    animation:
+        sphereRotate 7s linear infinite,
+        spherePulse 3s ease-in-out infinite;
+}
+
 
 }
 /* =========================================
@@ -2514,4 +2611,70 @@ box-shadow:
     transition:
         opacity 0.5s ease,
         box-shadow 0.5s ease;
+}
+
+/* =========================================
+   ANIMACIÓN AL HACER SCROLL
+   ========================================= */
+
+.projects,
+.services,
+.about,
+.courses,
+.contact {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.projects.visible,
+.services.visible,
+.about.visible,
+.courses.visible,
+.contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@supports (animation-timeline: view()) {
+
+    .projects,
+    .services,
+    .about,
+    .courses,
+    .contact {
+        animation: genesisReveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+
+}
+
+@keyframes genesisReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================
+   PARALLAX
+   ========================================= */
+
+.projects > *,
+.services > *,
+.about > *,
+.courses > *,
+.contact > * {
+    transition: transform 0.15s linear;
+    will-change: transform;
 }

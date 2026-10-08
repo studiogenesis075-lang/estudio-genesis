@@ -35,22 +35,27 @@
 
     <!-- NAVEGACIÓN -->
 
-    <header class="header">
+  <header class="header">
 
-        <a href="#" class="logo">
-    GENESIS
-</a>
+    <a href="#" class="logo">
+        GENESIS
+    </a>
 
+    <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-        <nav class="nav">
-    <a href="#proyectos">Proyectos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#estudio">Estudio</a>
-    <a href="#cursos">Cursos</a>
-    <a href="#contacto">Contacto</a>
-</nav>
+    <nav class="nav">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#estudio">Estudio</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-    </header>
+</header>
 
 
 
@@ -643,6 +648,54 @@ cube.style.setProperty(
 }
 </script>
 
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function () {
+            nav.classList.toggle('menu-open');
+        });
+    }
+</script>
+
+<script>
+(function () {
+
+    function genesisParallax() {
+
+        const elements = document.querySelectorAll(
+            '.projects > *, .services > *, .about > *, .courses > *, .contact > *'
+        );
+
+        elements.forEach(function (element) {
+
+            const rect = element.getBoundingClientRect();
+            const screenHeight = window.innerHeight;
+
+            if (rect.top < screenHeight && rect.bottom > 0) {
+
+                const center = rect.top + rect.height / 2;
+                const distance = (center - screenHeight / 2) * 0.30;
+
+                element.style.transform =
+                    'translateY(' + distance + 'px)';
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener('scroll', genesisParallax, {
+        passive: true
+    });
+
+    genesisParallax();
+
+})();
+</script>
+
 </body>
 
 <script>
@@ -669,5 +722,6 @@ cube.style.setProperty(
         projectObserver.observe(project);
     });
 </script>
+
 
 </html>
