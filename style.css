@@ -1,0 +1,1631 @@
+/* =========================================
+   ESTUDIO GÉNESIS
+   DISEÑO PRINCIPAL
+   ========================================= */
+
+
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 0px;
+}
+
+
+body {
+    background-color: #f5f5f3;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.header {
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    transform: translateX(-350px);
+}
+
+.logo img {
+    width: 105px;
+}
+
+
+.logo img {
+    width: 35px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* NAVEGACIÓN */
+
+.nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 42px;
+}
+
+
+.nav a {
+    position: relative;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 0.7rem;
+
+    font-weight: 500;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    transition: color 0.3s ease;
+}
+
+
+.nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background-color: #7a1f2b;
+
+    transition: width 0.3s ease;
+}
+
+
+.nav a:hover {
+    color: #7a1f2b;
+}
+
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 6vw 80px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hero-content {
+    max-width: 900px;
+}
+
+
+/* TEXTO PEQUEÑO */
+
+.eyebrow {
+    font-size: 0.72rem;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+
+    color: #7a1f2b;
+}
+
+
+/* TITULAR */
+
+.hero h1 {
+    font-size: clamp(4rem, 8vw, 8.5rem);
+
+    line-height: 0.9;
+
+    font-weight: 500;
+
+    letter-spacing: -0.06em;
+
+    max-width: 1000px;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: #7a1f2b;
+}
+
+
+/* DESCRIPCIÓN */
+
+.description {
+    margin-top: 45px;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    color: #555555;
+}
+
+
+/* BOTÓN */
+
+.button {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding: 16px 25px;
+
+    border: 1px solid #111111;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.15em;
+
+    transition: all 0.3s ease;
+}
+
+
+.button:hover {
+    background-color: #111111;
+
+    color: #ffffff;
+}
+
+.hero-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 40px;
+}
+
+.hero-menu a {
+    display: inline-block;
+    padding: 16px 24px;
+
+    border: 1px solid #111111;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.hero-menu a:hover {
+    background-color: #111111;
+    color: #ffffff;
+    border-color: #111111;
+}
+
+
+/* ---------- SECCIONES ---------- */
+
+.projects,
+.services,
+.about,
+.contact {
+    min-height: 100vh;
+
+    padding: 140px 6vw;
+}
+
+.projects {
+    background-color: #111111;
+    color: #f5f5f3;
+}
+
+.projects h2 span {
+    color: #9b3545;
+}
+
+.project-info {
+    border-color: #444444;
+}
+
+.project-info h3 {
+    color: #f5f5f3;
+}
+
+.project-info span {
+    color: #9b3545;
+}
+
+
+/* NÚMERO DE SECCIÓN */
+
+.section-number {
+    font-size: 0.7rem;
+
+    letter-spacing: 0.2em;
+
+    color: #7a1f2b;
+
+    margin-bottom: 35px;
+}
+
+
+/* TÍTULOS */
+
+.projects h2,
+.services h2,
+.about h2,
+.contact h2 {
+    font-size: clamp(3rem, 6vw, 7rem);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -0.05em;
+}
+
+
+.projects h2 span,
+.services h2 span,
+.about h2 span {
+    color: #7a1f2b;
+}
+
+.projects h2 span {
+    color: #9b3545;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    padding: 45px 6vw;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    border-top: 1px solid #cccccc;
+
+    background-color: #f5f5f3;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    color: #666666;
+}
+
+
+/* ---------- MARCA ---------- */
+
+.footer-brand {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.footer-brand strong {
+    color: #111111;
+
+    font-size: 0.9rem;
+
+    font-weight: 500;
+
+    letter-spacing: 0.2em;
+}
+
+
+.footer-brand span {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.16em;
+
+    color: #888888;
+}
+
+
+/* ---------- CENTRO ---------- */
+
+.footer-center {
+    text-align: center;
+}
+
+
+/* ---------- COPYRIGHT ---------- */
+
+.footer-copy {
+    text-align: right;
+}
+
+
+/* =========================================
+   FOOTER — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    footer {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        align-items: start;
+    }
+
+
+    .footer-center {
+        text-align: left;
+    }
+
+
+    .footer-copy {
+        text-align: left;
+    }
+
+}
+
+.hero-menu {
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.hero-menu a {
+    padding: 13px 16px;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .nav {
+        gap: 18px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 10vw, 6rem);
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .header {
+    padding: 0 4vw;
+}
+
+
+    .nav {
+        display: flex;
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 0.55rem;
+        letter-spacing: 0.08em;
+    }
+
+
+    .hero {
+        padding: 120px 5vw 70px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(3.3rem, 15vw, 5rem);
+
+        line-height: 0.92;
+    }
+
+
+    .projects,
+    .services,
+    .about,
+    .contact {
+        padding: 100px 5vw;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
+/* =========================================
+   GALERÍA DE PROYECTOS
+   ========================================= */
+
+.project-grid {
+    margin-top: 90px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 70px 35px;
+}
+
+
+/* ---------- TARJETAS ---------- */
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.project-item:hover::after {
+    opacity: 1;
+}
+
+
+/* ---------- IMÁGENES ---------- */
+
+.project-item img {
+    width: 100%;
+
+    height: 520px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.8s ease;
+}
+
+
+/* PROYECTO PRINCIPAL */
+
+.project-large {
+    grid-column: span 2;
+}
+
+
+.project-large img {
+    height: 700px;
+}
+
+
+/* PROYECTO ANCHO */
+
+.project-wide {
+    grid-column: span 2;
+}
+
+
+.project-wide img {
+    height: 600px;
+}
+
+
+/* ---------- EFECTO HOVER ---------- */
+
+.project-item:hover img {
+    transform: scale(1.035);
+}
+
+
+/* ---------- INFORMACIÓN ---------- */
+
+.project-info {
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    bottom: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    padding-top: 18px;
+    border-top: 1px solid rgba(245, 245, 243, 0.35);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    z-index: 3;
+}
+
+.project-item:hover .project-info {
+    opacity: 1;
+    transform: translateY(0);
+
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+.project-info span {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+
+    color: #7a1f2b;
+}
+
+
+.project-info h3 {
+    font-size: 0.85rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   GALERÍA — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .project-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        margin-top: 60px;
+    }
+
+
+    .project-large,
+    .project-wide {
+        grid-column: span 1;
+    }
+
+
+    .project-item img,
+    .project-large img,
+    .project-wide img {
+        height: 420px;
+    }
+
+
+    .project-info h3 {
+        font-size: 0.7rem;
+    }
+
+}
+/* =========================================
+   HERO — IMAGEN ARQUITECTÓNICA
+   ========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* ---------- IMAGEN ---------- */
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 58%;
+    height: 100%;
+    z-index: 0;
+
+    opacity: 0;
+
+    animation: heroImageIn 1.4s ease-out 2.2s forwards;
+}
+
+@keyframes heroImageIn {
+
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ---------- DEGRADADO ---------- */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f5f5f3 0%,
+            rgba(245,245,243,0.96) 35%,
+            rgba(245,245,243,0.25) 65%,
+            rgba(245,245,243,0) 100%
+        );
+}
+
+
+/* ---------- CONTENIDO ---------- */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+
+    opacity: 0;
+
+    animation: heroContentIn 1s ease-out 2.3s forwards;
+}
+
+@keyframes heroContentIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ---------- AJUSTE DEL TÍTULO ---------- */
+
+.hero h1 {
+    max-width: 850px;
+}
+
+
+/* ---------- BOTÓN ---------- */
+
+.hero .button {
+    background-color: rgba(245,245,243,0.75);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================
+   HERO — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 100vh;
+
+        align-items: flex-end;
+    }
+
+
+    .hero-image {
+        width: 100%;
+
+        height: 65%;
+    }
+
+
+    .hero-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(245,245,243,0) 0%,
+                rgba(245,245,243,0.15) 35%,
+                #f5f5f3 78%
+            );
+    }
+
+
+    .hero-content {
+        padding-bottom: 20px;
+    }
+
+}
+/* =========================================
+   SERVICIOS
+   ========================================= */
+
+.services {
+    background-color: #111111;
+
+    color: #f5f5f3;
+}
+
+
+/* ---------- ENCABEZADO ---------- */
+
+.services-header {
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.6fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    margin-bottom: 120px;
+}
+
+
+.services-header h2 {
+    margin: 0;
+}
+
+
+.services-header h2 span {
+    color: #9b3545;
+}
+
+
+.services-intro {
+    max-width: 400px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+
+    color: #aaaaaa;
+}
+
+
+/* ---------- LISTA ---------- */
+
+.services-list {
+    border-top: 1px solid #444444;
+}
+
+
+/* ---------- SERVICIO ---------- */
+
+.service {
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 40px;
+
+    padding: 38px 0;
+
+    border-bottom: 1px solid #444444;
+
+    transition: padding-left 0.4s ease;
+}
+
+
+.service:hover {
+    padding-left: 20px;
+}
+
+
+/* ---------- NÚMERO ---------- */
+
+.service-number {
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+
+    color: #9b3545;
+
+    padding-top: 7px;
+}
+
+
+/* ---------- TÍTULO ---------- */
+
+.service h3 {
+    margin: 0;
+
+    font-size: 1.5rem;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ---------- DESCRIPCIÓN ---------- */
+
+.service p {
+    max-width: 600px;
+
+    margin-top: 12px;
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+
+    color: #999999;
+}
+
+
+/* =========================================
+   SERVICIOS — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .services-header {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 70px;
+    }
+
+
+    .service {
+        grid-template-columns: 45px 1fr;
+
+        gap: 20px;
+
+        padding: 30px 0;
+    }
+
+
+    .service h3 {
+        font-size: 1.2rem;
+    }
+
+
+    .service:hover {
+        padding-left: 0;
+    }
+
+}
+/* =========================================
+   ESTUDIO / ABOUT
+   ========================================= */
+
+.about {
+    background-color: #f5f5f3;
+}
+
+
+/* ---------- CONTENIDO ---------- */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 100px;
+
+    align-items: start;
+
+    margin-top: 80px;
+}
+
+
+/* ---------- TÍTULO ---------- */
+
+.about-title h2 {
+    margin: 0;
+
+    font-size: clamp(4rem, 8vw, 9rem);
+
+    line-height: 0.88;
+
+    font-weight: 500;
+
+    letter-spacing: -0.07em;
+}
+
+
+.about-title h2 span {
+    display: block;
+
+    color: #7a1f2b;
+}
+
+
+/* ---------- TEXTO ---------- */
+
+.about-text {
+    max-width: 520px;
+
+    padding-top: 20px;
+}
+
+
+.about-text p {
+    margin-bottom: 28px;
+
+    font-size: 0.9rem;
+
+    line-height: 1.9;
+
+    color: #555555;
+}
+
+
+.about-text .about-lead {
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+
+    color: #111111;
+}
+
+
+/* ---------- LÍNEA INFERIOR ---------- */
+
+.about-line {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 150px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #cccccc;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+
+    color: #777777;
+}
+
+
+.about-line span:first-child {
+    color: #7a1f2b;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.2em;
+}
+
+
+/* =========================================
+   ESTUDIO — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        margin-top: 50px;
+    }
+
+
+    .about-title h2 {
+        font-size: clamp(4rem, 16vw, 6rem);
+    }
+
+
+    .about-text {
+        padding-top: 0;
+    }
+
+
+    .about-line {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        margin-top: 80px;
+    }
+
+}
+/* =========================================
+   CONTACTO
+   ========================================= */
+
+.contact {
+    background-color: #111111;
+
+    color: #f5f5f3;
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+/* ---------- CONTENIDO ---------- */
+
+.contact-content {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 100px;
+
+    margin-top: 80px;
+}
+
+
+/* ---------- TÍTULO ---------- */
+
+.contact-title h2 {
+    margin: 0;
+
+    font-size: clamp(4rem, 8vw, 9rem);
+
+    line-height: 0.88;
+
+    font-weight: 500;
+
+    letter-spacing: -0.07em;
+}
+
+
+.contact-title h2 span {
+    display: block;
+
+    color: #9b3545;
+}
+
+
+/* ---------- INFORMACIÓN ---------- */
+
+.contact-info {
+    max-width: 500px;
+
+    padding-top: 20px;
+}
+
+
+.contact-intro {
+    margin-bottom: 60px;
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+
+    color: #bbbbbb;
+}
+
+
+/* ---------- ENLACES ---------- */
+
+.contact-link {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px 0;
+
+    border-top: 1px solid #444444;
+
+    color: #f5f5f3;
+
+    text-decoration: none;
+
+    transition: padding-left 0.4s ease;
+}
+
+
+.contact-link:last-child {
+    border-bottom: 1px solid #444444;
+}
+
+
+.contact-link:hover {
+    padding-left: 15px;
+
+    color: #9b3545;
+}
+
+
+.contact-link span {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.18em;
+
+    color: #777777;
+}
+
+
+.contact-link strong {
+    font-size: 0.85rem;
+
+    font-weight: 400;
+
+    letter-spacing: 0.05em;
+
+    text-align: right;
+}
+
+
+/* =========================================
+   CONTACTO — CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .contact-content {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        margin-top: 50px;
+    }
+
+
+    .contact-title h2 {
+        font-size: clamp(4rem, 16vw, 6rem);
+    }
+
+
+    .contact-info {
+        padding-top: 0;
+    }
+
+
+    .contact-intro {
+        margin-bottom: 40px;
+    }
+
+
+    .contact-link {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+
+    .contact-link strong {
+        text-align: left;
+
+        font-size: 0.8rem;
+    }
+
+
+    .contact-link:hover {
+        padding-left: 0;
+    }
+
+}
+
+/* PANTALLA DE ENTRADA */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+
+    background-color: #f5f5f3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    animation: introScreen 2.5s ease-in-out forwards;
+    pointer-events: none;
+}
+
+.intro-welcome {
+    position: absolute;
+
+    color: #7a1f2b;
+
+    font-family: "Segoe Print", "Bradley Hand", cursive;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 1;
+
+    text-transform: uppercase;
+    margin: 0;
+
+    opacity: 0;
+    transform: translateY(30px);
+    animation: welcomeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+@keyframes welcomeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes introScreen {
+
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
+
+.intro-logo {
+    width: 360px;
+    max-width: 70vw;
+    height: auto;
+    display: block;
+
+    opacity: 0;
+
+    animation: introLogo 2.3s ease-in-out forwards;
+}
+
+@keyframes introLogo {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    65% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+}
+
+@keyframes introLogo {
+
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* ========================================
+   PÁGINA INDIVIDUAL DE PROYECTO
+======================================== */
+
+.project-page {
+    background-color: #f5f5f3;
+    color: #111111;
+}
+
+
+/* HERO DEL PROYECTO */
+
+.project-hero {
+    min-height: 75vh;
+    padding: 180px 6vw 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.project-hero h1 {
+    max-width: 1000px;
+    margin: 0;
+
+    font-size: clamp(4rem, 9vw, 10rem);
+    line-height: 0.88;
+    font-weight: 500;
+    letter-spacing: -0.07em;
+}
+
+.project-hero h1 span {
+    display: block;
+    color: #7a1f2b;
+}
+
+.project-meta {
+    display: flex;
+    gap: 50px;
+
+    margin-top: 60px;
+    padding-top: 20px;
+
+    border-top: 1px solid #cccccc;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: #666666;
+}
+
+
+/* IMAGEN PRINCIPAL */
+
+.project-main-image {
+    width: 100%;
+    padding: 0 6vw;
+}
+
+.project-main-image img {
+    width: 100%;
+    height: 75vh;
+
+    object-fit: cover;
+    display: block;
+}
+
+
+/* DESCRIPCIÓN */
+
+.project-description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+
+    padding: 150px 12vw;
+}
+
+.project-description p {
+    max-width: 550px;
+
+    margin-bottom: 30px;
+
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #555555;
+}
+
+.project-description div:last-child p:first-child {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #111111;
+}
+
+
+/* IMAGEN SECUNDARIA */
+
+.project-secondary-image {
+    width: 70%;
+    margin-left: 18%;
+}
+
+.project-secondary-image img {
+    width: 100%;
+    height: 650px;
+
+    object-fit: cover;
+    display: block;
+}
+
+
+/* NAVEGACIÓN */
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 150px 6vw 100px;
+    padding-top: 25px;
+
+    border-top: 1px solid #cccccc;
+}
+
+.project-navigation a {
+    color: #111111;
+    text-decoration: none;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+
+    transition: color 0.3s ease;
+}
+
+.project-navigation a:hover {
+    color: #7a1f2b;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .project-hero {
+        min-height: 70vh;
+        padding: 150px 5vw 60px;
+    }
+
+    .project-hero h1 {
+        font-size: clamp(4rem, 17vw, 6rem);
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 45px;
+    }
+
+    .project-main-image {
+        padding: 0 5vw;
+    }
+
+    .project-main-image img {
+        height: 55vh;
+    }
+
+    .project-description {
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        padding: 100px 5vw;
+    }
+
+    .project-secondary-image {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .project-secondary-image img {
+        height: 450px;
+    }
+
+    .project-navigation {
+        margin: 100px 5vw 70px;
+    }
+
+}
